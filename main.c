@@ -38,9 +38,8 @@ int main() {
 
     // Start with upper-bound equals 8 for simple testing, can increase later after initial validation of method
     for (int i = 0; i < 8; i++) {
-        int pos = arc4random_uniform(AES_keyExpSize);
-        int bit = (schedule->RoundKey[i] & (1 << (pos % 8))) >> (pos % 8);
-        schedule->RoundKey[i] = (bit==0) ? schedule->RoundKey[i] & ~(1 << (pos % 8)) : schedule->RoundKey[i] | (1 << (pos % 8));
+        int pos = arc4random_uniform(AES_keyExpSize*8);
+        schedule->RoundKey[pos/8] ^= (1 << (pos % 8));
     }
 
     printf("Simulated corrupted schedule (hex): ");
