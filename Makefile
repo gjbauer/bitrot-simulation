@@ -1,6 +1,6 @@
 
 all: aes.o
-	gcc -o simulation main.c aes.o -lssl -lcrypto -Itiny-AES-c
+	gcc -o simulation main.c aes.o -lssl -lcrypto -Itiny-AES-c -DAES256
 	rm aes.o
 
 aes.o:
