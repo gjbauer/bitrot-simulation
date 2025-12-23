@@ -26,6 +26,14 @@ int main() {
     }
     printf("\n");
 
+    FILE *file_ptr;
+
+    file_ptr = fopen("uncorrupted.bin", "wb");
+
+    fwrite(schedule->RoundKey, AES_keyExpSize*sizeof(uint8_t), 1, file_ptr);
+
+    fclose(file_ptr);
+
     memset(&derived_key, 0, sizeof(derived_key));
 
     // Start with upper-bound equals 8 for simple testing, can increase later after initial validation of method
@@ -40,6 +48,12 @@ int main() {
         printf("%02x", schedule->RoundKey[i]);
     }
     printf("\n");
+
+    file_ptr = fopen("corrupted.bin", "wb");
+
+    fwrite(schedule->RoundKey, AES_keyExpSize*sizeof(uint8_t), 1, file_ptr);
+
+    fclose(file_ptr);
     
     return 0;
 }

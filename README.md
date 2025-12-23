@@ -12,3 +12,7 @@ After that, make sure that you initialize the 'tiny-AES-C' submodule by running 
 `git submodule update --init`
 
 Finally, you should simply be able to build the project by running `make`
+
+If using a traditional tool such as 'findaes' to search for a key schedule, you should find that the generated 'uncorrupted.bin' should
+contain a valid AES-256 key schedule and that 'corrupted.bin' does not. The goal is to successfully create a tool which can take the 
+generated 'corrupted.bin' file and successfully reconstruct the original key schedule in 'uncorrupted.bin'
