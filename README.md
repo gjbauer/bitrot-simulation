@@ -1,8 +1,6 @@
 # Bitrot Simulation
 ## Simulate bit rot against an AES-256 key schedule
 
------
-
 To start with, make sure that you have the OpenSSL development libraries for your distribution (assuming Linux) are installed.
 
 For Ubuntu this can be done with the following command:
